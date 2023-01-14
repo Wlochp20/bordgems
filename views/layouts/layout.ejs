@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <%- head %>
+    <link rel="stylesheet" href="/css/menu.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">
+                <img src="/img/logo.png" alt="logo">
+            </a>
+            <ul>
+                <li><a href="/">Strona główna</a></li>
+                <li class="drop">
+                    Gry
+                    <ul class="dropdown">
+                        <% for(i = 0; i < locals.games.length; i++){ %>
+                            <li>
+                                <a href="/<%= locals.games[i] %>"><%= locals.games[i][0].toUpperCase() + locals.games[i].substring(1) %></a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </li>
+                <li><a href="/">O nas</a></li>
+                <% if (locals.logged) { %>
+                    <li class="user"><a href="/profile/<%= locals.currUser.name %>"><%= locals.currUser.name %><span class="hash"><%= locals.currUser.hash %></span></a></li>
+                <% } %>
+            </ul>
+        </nav>
+        <div class="headerInside">
+            <%- headerInside %>
+        </div>
+        <svg viewBox="0 0 1440 273" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1440 0H1360.13H1202.4H1043.53H884.659H726.937H568.063H410.342H251.468H92.5951H0V221.48C30.7789 234.547 61.4884 245.412 92.5951 241.747C129.734 237.919 166.874 213.38 204.013 188.841C219.831 178.389 235.65 167.937 251.468 159.085C304.426 129.452 357.384 117.754 410.342 141.929C426.536 149.242 442.843 160.061 459.227 170.93L459.228 170.931C495.257 194.833 531.66 218.984 568.063 206.655C591.761 198.629 615.459 175.299 639.157 151.97L639.157 151.969C668.417 123.164 697.677 94.3594 726.937 94.3594C762.69 94.3594 798.444 137.369 833.843 179.952C850.877 200.443 867.828 220.834 884.659 236.288C937.616 283.078 990.574 283.078 1043.53 247.986C1062.02 235.459 1080.52 218.748 1099.01 202.037C1133.48 170.894 1167.94 139.75 1202.4 135.69C1230.19 132.417 1257.67 147.181 1285.16 161.954C1310.05 175.333 1334.96 188.719 1360.13 188.719C1388.04 188.719 1415.96 172.248 1440 152.446V0Z" fill="url(#paint0_linear_656_111)"/>
+            <defs>
+                <linearGradient id="paint0_linear_656_111" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#F34B4B"/>
+                    <stop offset="1" stop-color="#DD7B44"/>
+                </linearGradient>
+            </defs>
+        </svg>            
+    </header>
+    <%- body %> 
+</body>
+</html>

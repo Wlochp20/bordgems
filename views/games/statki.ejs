@@ -1,0 +1,89 @@
+<%- contentFor('head') %>
+    <meta charset="UTF-8">
+    <title>Statki</title>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <link rel="stylesheet" href="/css/games/statki.css">
+
+<%- contentFor('game') %>
+    <div class="inGame hidden">
+        <div class="boards">
+            <div class="boardContainer">
+                <div class="columns">
+                    <% for (let i = 0; i < locals.lobby.gameOptions.boards[1].length; i++) { %>
+                        <p><%= i + 1 %></p>
+                    <% } %>  
+                </div>
+                <div class="rows">
+                    <% for(const row in locals.lobby.gameOptions.boards[1][0]) { %>
+                        <p><%= row %></p>
+                    <% } %>
+                </div>
+                <div class="board playerBoard">
+                    <% for (let i = 0; i < locals.lobby.gameOptions.boards[0].length; i++) { %>
+                        <div class="row">
+                            <% for(const row in locals.lobby.gameOptions.boards[0][i]) { %>
+                                <div fieldI="<%= locals.lobby.gameOptions.boards[0][i][row] %>"></div>
+                            <% } %>
+                        </div>
+                    <% } %>  
+                </div>
+            </div>
+            <div class="boardContainer">
+                <div class="columns">
+                    <% for (let i = 0; i < locals.lobby.gameOptions.boards[1].length; i++) { %>
+                        <p><%= i + 1 %></p>
+                    <% } %>  
+                </div>
+                <div class="rows">
+                    <% for(const row in locals.lobby.gameOptions.boards[1][0]) { %>
+                        <p><%= row %></p>
+                    <% } %>
+                </div>
+                <div class="board enemyBoard">
+                    <% for (let i = 0; i < locals.lobby.gameOptions.boards[1].length; i++) { %>
+                        <div class="row">
+                            <% for(const row in locals.lobby.gameOptions.boards[1][i]) { %>
+                                <div fieldI="<%= locals.lobby.gameOptions.boards[1][i][row] %>"></div>
+                            <% } %>
+                        </div>
+                    <% } %>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preparation">
+        <div class="boardContainer">
+            <div class="columns">
+                <% for (let i = 0; i < locals.lobby.gameOptions.boards[1].length; i++) { %>
+                    <p><%= i + 1 %></p>
+                <% } %>  
+            </div>
+            <div class="rows">
+                <% for(const row in locals.lobby.gameOptions.boards[1][0]) { %>
+                    <p><%= row %></p>
+                <% } %>
+            </div>
+            <div class="board">
+                <% for (let i = 0; i < locals.lobby.gameOptions.boards[1].length; i++) { %>
+                    <div class="row">
+                        <% for(const row in locals.lobby.gameOptions.boards[1][i]) { %>
+                            <div fieldI="0"></div>
+                        <% } %>
+                    </div>
+                <% } %>  
+            </div>
+        </div>
+        <div class="prepContainer">
+            <div class="ships"></div>
+            <button class="random">Losowe pozycje</button>
+            <button class="submit">Wyślij</button>
+        </div>
+    </div>
+
+<%- contentFor('script') %> 
+    <script> 
+        let playerIndex = JSON.parse('<%= locals.playerIndex %>');
+        let playerTurn = JSON.parse('<%= locals.lobby.queue %>');
+        let started = JSON.parse('<%= locals.lobby.gameOptions.started %>');
+    </script>
+    <script src="/js/games/statki.js"></script>

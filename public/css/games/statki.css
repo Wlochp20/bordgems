@@ -1,0 +1,169 @@
+.game
+{
+    margin-top: 100px;
+    padding-right: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boardContainer { position: relative }
+.boardContainer .columns
+{
+    position: absolute;
+    top: -50px;
+    display: flex;
+    justify-content: center;
+}
+.boardContainer .columns p
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid transparent;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.boardContainer .rows
+{
+    position: absolute;
+    top: 0;
+    left: -50px;
+}
+.boardContainer .rows p
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border: 1px solid transparent;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.game .boards
+{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.board .row
+{
+    display: flex;
+    justify-content: center;
+}
+.board .row > div
+{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    background-color: #fff;
+    border: 1px solid black;
+}
+.ships
+{
+    margin-top: 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+}
+.ships > div
+{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    transform-origin: right;
+}
+.ships > .rotated
+{
+    flex-direction: row;
+}
+.ships > div div
+{
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+.dragged
+{
+    position: absolute;
+}
+.dragging
+{
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+.board .row > div[fieldI="1"]
+{
+    background-color: black;
+}
+.board .row > div[fieldI="2"]
+{
+    background-color: red;
+}
+.board .row > div[fieldI="-1"]::after
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 25%;
+    background-color: black;
+    border-radius: 50%;
+}
+.board .row > div[fieldI="-2"]::after
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 25%;
+    background-color: red;
+    border-radius: 50%;
+}
+.preparation .prepContainer { width: 400px }
+.preparation .ships
+{
+    margin: 10px 5px;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.preparation button
+{
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 5px;
+    background-color: #2A2A2A;
+    color: #fff;
+    transition: .2s;
+}
+.preparation button:hover
+{
+    background-color: #444444;
+}

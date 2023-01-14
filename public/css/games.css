@@ -1,0 +1,336 @@
+@import url(general.css);
+
+.gameHidden { opacity: .2 }
+.hidden { display: none }
+.waiting > div
+{
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #363636;
+    max-width: 1000px;
+    width: 90vw;
+    border-radius: 8px;
+}
+.waiting > div h2
+{
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 60px;
+}
+.waiting > div > p
+{
+    text-align: center;
+    color: #818181;
+    font-size: 29px;
+    margin: 0;
+}
+.waiting > div > p span { color: #fff }
+.waiting > div .players
+{
+    margin-inline: auto;
+    width: 50%;
+}
+.waiting > div .players > p
+{
+    color: #fff;
+    font-weight: 500;
+    font-size: 25px;
+    font-style: italic;
+}
+.waiting > div .players > div
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.waiting > div .players > div .avatar
+{
+    margin-bottom: 15px;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.waiting > div .players > div .user p
+{
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+}
+.waiting > div .players > div .user .special
+{
+    color: #999999;
+    font-size: 20px;
+}
+.waiting > div button
+{
+    cursor: pointer;
+    margin: 25px 0;
+    padding: 10px 0;
+    width: 50%;
+    
+    background-color: #F34B4B;
+    color: #fff;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+}
+.waiting > div button:hover { background-color: #f36060 }
+
+.aside 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    background-color: #202020;
+    height: 100%;
+}
+.aside .queue 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #a9a9a9;
+    margin: 20px;
+}
+.aside .queue p 
+{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+.aside .users { width: 100% }
+.aside .users .user 
+{
+    background-color: #393939;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 85%;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+}
+.aside .users .user .name p 
+{
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    text-align: right;
+    color: #fff;
+} 
+.aside .users .user .name .hash 
+{
+    color: #a5a5a5;
+    font-size: 15px;
+}
+.aside .users .user .avatar 
+{
+    background-color: white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.aside .users .user .time p 
+{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+}
+.aside .users .user .time p svg 
+{
+    height: 15px;
+    fill: #fff;
+}
+.aside h2 
+{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.aside h2 > svg 
+{
+    height: 40px;
+    fill: #fff;
+}
+.aside .chatContainer
+{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+}
+.aside .chatContainer .messages
+{
+    overflow-y: auto;
+    height: 400px;
+    background-color: #2B2B2B;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.aside .chatContainer .messages > div 
+{
+    margin: 10px;
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+}
+.aside .chatContainer .messages div .avatar
+{
+    background-color: #fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.aside .chatContainer .messages div div p
+{
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    width: 200px;
+    word-wrap: break-word;
+}
+.aside .chatContainer .messages div div .author
+{
+    font-size: 17px;
+    color: #a9a9a9;
+}
+.aside .chatContainer form
+{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.aside .chatContainer form input[type=text]
+{
+    padding: 5px 10px;
+    background-color: #fff;
+    
+    font-size: 20px;
+    border-radius: 5px 0 0 5px;
+}
+.aside .chatContainer form input[type=text]:focus { outline: none }
+.aside .chatContainer form input[type=submit]
+{
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #2B2B2B;
+    color: #7C7C7C;
+    font-size: 20px;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+}
+.aside .chatContainer form input[type=submit]:hover { background-color: #383838 }
+  
+.menu
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: linear-gradient(to bottom, #F34B4B, #DD7B44);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 100%;
+} 
+.menu .avatar a
+{
+    margin: 20px 0 50px;
+    text-align: center;
+    display: flex;
+    padding: 10px;
+    background-color: #202020;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+}
+.menu h2
+{
+    padding: 20px 0;
+    text-align: center;
+    color: #DD7B44;
+    background-color: #fff;
+    width: 100%;
+}
+.menu .menuColumn
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 50%;
+}
+.menu .menuColumn li
+{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.menu .menuColumn li a
+{
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+.menu .menuColumn svg
+{
+    width: 30px;
+    fill: #fff;
+    margin-right: 10px;
+}
+.menu .menuColumn .drop 
+{ 
+    padding-right: 35px; 
+    color: #fff; 
+}
+.menu .menuColumn .drop:hover .dropdown { display: block }
+.menu .menuColumn li .dropdown
+{
+    margin: 0;
+    margin-left: 10px;
+    padding: 0;
+    display: none;
+    list-style-type: none;
+}
+.menu .menuColumn li .dropdown li { transition: .2s }
+.menu .menuColumn li .dropdown li a:hover 
+{ 
+    color: #202020;
+    margin-left: 15px;
+}
+.menu .menuColumn li .dropdown li a
+{
+    padding: 5px;
+    width: 100%;
+    color: #fff;
+}
+
+.game
+{
+    margin-left: 400px;
+}

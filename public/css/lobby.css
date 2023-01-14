@@ -1,0 +1,166 @@
+.hidden { display: none }
+.lobbyCreation
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: #00000066;
+}
+.lobbyCreation .content
+{
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #363636;
+    border-radius: 20px;
+}
+.lobbyCreation .content h2
+{
+    text-align: center;
+    font-weight: 500;
+    font-size: 60px;
+    color: #fff;
+}
+.lobbyCreation .content form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lobbyCreation .content form .inputs
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.lobbyCreation .content form .inputs div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lobbyCreation .content form .inputs div label
+{
+    margin-right: 20px;
+    font-size: 30px;
+    color: #fff;
+}
+.lobbyCreation .content form .inputs div input
+{
+    font-size: 25px;
+    width: 300px;
+    height: 50px;
+    border: 0;
+}
+.lobbyCreation .content form .inputs .time input
+{
+    margin: 1px;
+    width: 150px;
+}
+.lobbyCreation .content form .inputs div input:focus { outline: none }
+.lobbyCreation .content form input[type=submit]
+{
+    cursor: pointer;
+    margin: 50px 0;
+    padding: 10px 100px;
+    background-color: #F34B4B;
+    font-size: 35px;
+    color: #fff;
+    border: 0;
+    box-shadow: 0 10px 0 0 #ed2929;
+}
+.lobbyCreation .content form input[type=submit]:hover { background-color: #f15d5d }
+.lobbyCreation .content form input[type=submit]:active
+{
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 0 #ed2929;
+}
+
+header .headerInside h1
+{
+    margin: 0;
+    padding: 25px;
+    text-align: center;
+    font-size: 65px;
+    letter-spacing: 5px;
+    color: #fff;
+}
+
+main
+{
+    margin-top: -300px;
+}
+main .joinButtons
+{
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    width: 100vw;
+}
+main .joinButtons button
+{
+    cursor: pointer;
+    width: 320px;
+    height: 80px;
+    background-color: #363636;
+    border: 0;
+    font-size: 25px;
+    color: #fff;
+    border-radius: 20px;
+    transition: .2s;
+}
+main .joinButtons button:hover { background-color: #565656 }
+main .lobbies
+{
+    margin-top: 35px;
+    margin-inline: auto;
+    padding: 25px 60px;
+    position: relative;
+    z-index: 1;
+    max-width: calc(1000px - 120px);
+    width: 100vw;
+    background-color: #363636;
+    min-height: calc(500px - 50px);
+    border-radius: 20px;
+}
+main .lobbies > p
+{
+    font-size: 25px;
+    color: #BEBEBE;
+}
+main .lobbies > p span { color: #fff }
+main .lobbies .legend
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+}
+main .lobbies .games a
+{
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #575454;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+}
+main .lobbies .games a p span
+{
+    display: block;
+    font-size: 20px;
+    color: #979696;
+}

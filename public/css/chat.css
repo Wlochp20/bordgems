@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  height: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  width: 100vw;
+  background-color: #202020;
+  height: 100%;
+}
+.aside .queue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a9a9a9;
+  margin: 20px;
+}
+.aside .queue p {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+.aside .user {
+  background-color: #393939;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 85%;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+}
+.aside .user .name p {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  text-align: right;
+  color: #fff;
+}
+
+.aside .user .name .hash {
+  color: #a5a5a5;
+  font-size: 15px;
+}
+.aside .user .avatar {
+  background-color: white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.aside .user .time p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+.aside .user .time p svg {
+  height: 15px;
+  fill: #fff;
+}
+.aside h2 {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.aside h2 > svg {
+  height: 40px;
+  fill: #fff;
+}
+
+.chats{
+  display: flex;
+  align-items: center;
+
+  background-color: #2B2B2B;
+  width: 85%;
+}
+
+
+.profil{
+  background: linear-gradient(to bottom, #F34B4B, #DD7B44) ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+  width: 100vw;
+  height: 100%;
+ 
+}
+.profil .avatar{
+  background-color: white;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.profil .menuColumn{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+}
+.profil .menuColumn li{
+  display: flex;
+  align-items: center;
+  
+}
+.profil .menuColumn li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+.profil .menuColumn svg{
+  height: 30px;
+  fill: #fff;
+}
+
+/*# sourceMappingURL=chat.css.map */

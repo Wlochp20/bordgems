@@ -1,0 +1,24 @@
+<%- contentFor('head') %>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+    
+<%- contentFor('headerInside') %>
+<% if (!locals.logged) { %>
+    <a href="/login">Zaloguj</a>
+    <a href="/register">Rejstracja</a>
+<% } %>
+
+<%- contentFor('body') %>
+    <main>
+        <div class="games">
+            <% for(i = 0; i < locals.games.length; i++){ %>
+                <div>
+                    <a href="/<%= locals.games[i] %>">
+                        <img src="img/<%= locals.games[i] %>.png">
+                    </a>
+                    <p><%= locals.games[i][0].toUpperCase() + locals.games[i].substring(1) %></p>
+                </div>
+            <% } %>
+        </div>
+    </main>

@@ -1,0 +1,698 @@
+.game
+{
+    position: relative;
+    padding-top: 10px;
+    padding-right: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.board
+{
+    position: relative;
+    display: grid;
+    grid-template-areas:
+            "c c d"
+            "b o d"
+            "a a d";
+            gap: 3px;
+}
+.board .bottom
+{
+    display: flex;
+    flex-direction: row-reverse;
+    grid-area: a;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    height: 200px;
+}
+.board .left
+{
+    display: flex;
+    flex-direction: column-reverse;
+    grid-area: b;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3px;
+    width: 200px;
+}
+.board .top
+{
+    display: flex;
+    flex-direction: row;
+    grid-area: c;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+    height: 200px;
+}
+.board .right
+{
+    display: flex;
+    flex-direction: column;
+    grid-area: d;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 3px;
+    width: 200px;
+}
+.board .center
+{
+    grid-area: o;
+    width: auto;
+}
+.board .center .money
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 700px;
+    height: 700px;
+    color: #363636;
+    text-align: center;
+    font-size: 20px;
+    background-color: transparent;
+}
+.board .center .move
+{
+    cursor: pointer;
+    padding: 20px 0;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    width: 200px;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #F34B4B, #DD7B44);
+    border: 0;
+    color: #FFF;
+    font-size: 25px;
+    border-radius: 5px;
+    box-shadow: 0 10px 0 0 #dc8350;
+}
+.board .center .move:hover { color: #f0cbb6 }
+.board .center .move:active
+{
+    transform: translate(-50%, 5px);
+    box-shadow: 0 5px 0 0 #dc8350;
+}
+.board .center .trade
+{
+    padding: 10px 0;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    width: 200px;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 10px;
+    background-color: transparent;
+}
+.board .center .trade select
+{
+    background-color: #2A2A2A;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px;
+    font-size: 18px;
+    width: 380px;
+    border-radius: 8px;
+}
+.board .center .trade button
+{
+    cursor: pointer;
+    background-color: #2A2A2A;
+    color: #fff;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+.board .center .trade .trades
+{
+    grid-column: 1 / span 2;
+    padding: 5px;
+    border: 0;
+}
+.board .center .trade .trades input
+{
+    padding: 8px;
+    border: 0;
+    margin: 5px;
+}
+.board .center .trade .trades label { color: #2A2A2A }
+.board .bottom > div, .board .top > div
+{
+    width: 100px;
+    height: 200px;
+}
+.board .left > div, .board .right > div
+{
+    width: 200px;
+    height: 100px;
+}
+.board > .bottom > div:last-child, .board > .right > div:last-child, .board > .top > div:first-child, .board > .right > div:first-child
+{
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+}
+.board > .bottom > div:last-child p
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: right;
+    color: #838383;
+    font-weight: 700;
+}
+.board > .right > div:last-child p
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: left;
+    color: #838383;
+    font-weight: 700;
+}
+.board > .right > div:first-child p
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: top;
+    color: #838383;
+    font-weight: 700;
+}
+.board > .top > div:first-child p
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: top;
+    color: #838383;
+    font-weight: 700; 
+}
+.board > div > div
+{
+    box-sizing: border-box;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #363636;
+}
+.board > div > div p
+{
+    text-align: center;
+    color: #fff;
+}
+.board > div div .color
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--field-color);
+    width: 100%;
+    height: 100%;
+}
+.board .left > div .color, .board .right > div .color
+{
+    width: 40px;
+    height: 100px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.board .bottom > div .color, .board .top > div .color
+{
+    width: 100px;
+    height: 40px;
+}
+.board .left > div:not(.price) > p, .board .right > div:not(.price):not(:first-child):not(:last-child) > p
+{
+    transform: rotate(-90deg) translate(-20px, -40px);
+}
+.board .left .price, .board .right > div:not(:first-child):not(:last-child) .price
+{
+    position: absolute;
+    top: 50%;
+    left: 165px;
+    transform: translateY(-50%) rotate(-90deg);
+    width: fit-content;
+    height: fit-content;
+    width: -moz-fit-content;
+    height: -moz-fit-content;
+}
+.board div div p
+{
+    transform: translate(0, 40px);
+}
+.board div .price
+{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.board > div:not(.right):not(.left) > .festival 
+{ 
+    border-bottom: 10px solid #dc143c;
+}
+.board .left > .festival , .board .right > .festival 
+{ 
+    border-right: 10px solid #dc143c;
+}
+.board > div:not(.right):not(.left) > .champions 
+{ 
+    border-bottom: 10px solid #dc143c;
+    box-shadow: 0 10px 0 0 #7fffd4;
+}
+.board .left > .champions , .board .right > .champions 
+{ 
+    border-right: 10px solid #dc143c;
+    box-shadow: 10px 0 0 0 #7fffd4;
+}
+.board > div > .electricityOff { opacity: .2; }
+.board > div > div .players
+{
+    position: absolute;
+    top: calc(50% + 50px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 60%;
+    height: 60%;
+}
+.board > div > div .players div
+{
+    width: 30px;
+    height: 30px;
+    background-color: var(--pawn-color);
+    border-radius: 50%;
+}
+.board > div > div .price
+{
+    color: var(--pawn-color);
+}
+.trade .trades
+{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.container
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ae;
+    border: 2px solid 
+}
+
+.container .buyProperty
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 650px;
+    height: auto;
+    background-color: #2C2626;
+    border-radius: 5px;
+    border: 5px solid var(--field-color);
+}
+.container .buyProperty h2
+{
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+}
+.container .buyProperty .types
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.container .buyProperty .types > div
+{
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A2A2A;
+    border-radius: 5px;
+    width: 140px;
+    color: white; 
+    box-shadow: 0 10px 0 0 #000;
+}
+.container .buyProperty .types > div:not(.bought):not(.locked) { cursor: pointer }
+.container .buyProperty .types > div:not(.bought):not(.locked):hover
+{
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 0 #000;
+}
+.container .buyProperty .types > div p
+{
+    padding: 0;
+    margin: 0;
+    color: #BCB8B8;
+    font-size: 16px;
+}
+.container .buyProperty .types div svg
+{
+    fill: var(--field-color);
+    height: 100px;
+    width: 100px;
+}
+.container .buyProperty button
+{
+    cursor: pointer;
+    margin: 50px 0;
+    margin-inline: auto;
+    display: block;
+    padding: 10px 0;
+    width: 50%;
+    background-color: #F34B4B;
+    color: #fff;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    transition: .2s;
+}
+.container .buyProperty button:hover { background-color: #f56464 }
+.container .buyProperty .bought::before
+{
+    content: 'Kupione';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    background-color: #000000ae;
+}
+.container .buyProperty .locked::after
+{
+    content: 'Zablokowane';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    background-color: #000000ae;
+}
+.jail
+{
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 650px;
+    height: auto;
+    background-color: #2C2626;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #fff;
+}
+.jail h2
+{
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+}
+.jail .choice
+{
+    width: 80%;
+    cursor: pointer;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.jail .choice div
+{
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-direction: row-reverse;
+    background-color: #3E3C3C;
+    border-radius: 6px;
+}
+.jail .choice div:hover { transform: translate(10px) }
+.jail .choice div svg
+{
+    fill: #fff;
+    width: 40px;
+    height: 40px;
+}
+.jail .choice div p
+{
+    color: #fff;
+    font-size: 20px;
+}
+.chance
+{
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 450px;
+    background-color: #2C2626;
+    border-radius: 8px;
+    border: 5px solid #fff;
+}
+.chance h2
+{
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 45px;
+    text-align: center;
+    color: #fff;
+}
+.chance p
+{
+    color: #fff;
+    font-size: 20px;
+}
+.chance svg
+{
+    fill: #fff;
+    width: 150px;
+    height: 150px;
+}
+.island
+{
+    padding: 50px;
+    width: 650px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    background-color: #2C2626;
+    border-radius: 8px;
+    border: 5px solid #fff;
+}
+.island h2
+{
+    margin: 0;
+    color: #fff;
+    font-size: 40px;
+}
+.island div
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+.island > div div
+{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.island div p
+{
+    color: #fff;
+    font-size: 18px;
+}
+.island div div p:nth-child(3){color: #8E8E8E}
+.island div svg
+{
+    fill: #fff;
+    width: 250px;
+    height: 250px;
+}
+.island div button
+{
+    cursor: pointer;
+    margin-inline: auto;
+    display: block;
+    padding: 10px 0;
+    background-color: #414141;
+    color: #fff;
+    width: 50%;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    transition: .2s;
+}
+.invisible { opacity: 0.2 }
+.canClick {
+    cursor: pointer;
+}
+.island div button:hover { background-color: #2A2A2A }
+.island div button:nth-child(2) { background-color: #F34B4B }
+.island div button:nth-child(2):hover { background-color: #f56464 }
+
+.tradeW
+{
+    padding: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 450px;
+    background-color: #2C2626;
+    border-radius: 8px;
+    border: 5px solid #fff;
+}
+.tradeW h2
+{
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+}
+.tradeW h3
+{
+    margin: 0;
+    margin-bottom: 25px;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}
+.tradeW .tradeInfo
+{
+    width: 100%;
+}
+.tradeW .tradeInfo > div
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+.tradeW .tradeInfo > div p
+{
+    color: #fff;
+    font-size: 30px;
+}
+.tradeW .tradeInfo > div ul li
+{
+    color: #fff;
+    font-size: 20px;
+}
+.tradeW .tradeInfo > div::after
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #fff;
+}
+.tradeW .buttons
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+.tradeW .buttons  button
+{
+    cursor: pointer;
+    margin-inline: auto;
+    display: block;
+    padding: 10px 0;
+    background-color: #414141;
+    color: #fff;
+    width: 50%;
+    font-size: 24px;
+    border: 0;
+    border-radius: 5px;
+    transition: .2s;
+}
+.invisible { opacity: 0.2 }
+.canClick { cursor: pointer }
+.tradeW .buttons button:hover { background-color: #2A2A2A }
+.tradeW .buttons button:nth-child(2) { background-color: #F34B4B }
+.tradeW .buttons button:nth-child(2):hover { background-color: #f56464 }

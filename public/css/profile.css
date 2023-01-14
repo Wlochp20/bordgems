@@ -1,0 +1,128 @@
+header .headerInside { padding: 50px 70px 0 70px }
+header .headerInside .user
+{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 100px;
+}
+header .headerInside .user .avatar
+{
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+header .headerInside .user .info p
+{
+    margin: 0;
+    padding: 10px;
+    font-size: 36px;
+    color: #fff;
+}
+header .headerInside .user .info .name { font-weight: 600 }
+header .headerInside .user .info .name span { color: #ffffff85; }
+header .headerInside .user .info .mail { font-family: RobotoLight }
+header .headerInside .follow
+{
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    padding: 10px 0;
+    margin-top: 50px;
+    width: 250px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+    color: #363636;
+    box-shadow: 0 10px 0 0 #dbdbdb;
+    transition: .2s;
+}
+header .headerInside .follow:hover
+{
+    background-color: #eaeaea;
+    box-shadow: 0 10px 0 0 #dddddd;
+}
+header .headerInside .follow:active
+{
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 0 #dddddd;
+}
+main
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+main .addFollow
+{
+    cursor: pointer;
+    padding: 10px;
+    margin: 50px 50px 0 0;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #CBCBCB;
+    font-weight: 600;
+    font-size: 20px;
+    color: #363636;
+    box-shadow: 0 10px 0 0 #dbdbdb;
+    transition: .2s;
+}
+main .addFollow svg
+{
+    width: 40px;
+    fill: #363636;
+}
+main .addFollow:hover
+{
+    background-color: #eaeaea;
+    box-shadow: 0 10px 0 0 #dddddd;
+}
+main .addFollow:active
+{
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 0 #dddddd;
+}
+main h2
+{
+    text-align: center;
+    font-size: 30px;
+    color: #363636;
+}
+main .follows
+{
+    margin-bottom: 80px;
+    margin-inline: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+}
+main .follows a
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    width: 400px;
+    height: 150px;
+    background-color: #363636;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+main .follows a div
+{
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+}

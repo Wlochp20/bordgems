@@ -1,0 +1,43 @@
+<%- contentFor('head') %>
+    <meta charset="UTF-8">
+    <title>Warcaby</title>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <link rel="stylesheet" href="/css/games/warcaby.css">
+<%- contentFor('game') %> 
+    <div>
+        <div class="boardContainer">
+            <div class="columns">
+                <% for (let i = 0; i < locals.lobby.gameOptions.board.length; i++) { %>
+                    <p><%= i + 1 %></p>
+                <% } %>  
+            </div>
+            <div class="rows">
+                <p>h</p>
+                <p>g</p>
+                <p>f</p>
+                <p>e</p>
+                <p>d</p>
+                <p>c</p>
+                <p>b</p>
+                <p>a</p>
+            </div>
+        </div>
+        <div class="board">
+            <% for (let i = 0; i < locals.lobby.gameOptions.board.length; i++) { %>
+                <div class="row">
+                    <% for(const row in locals.lobby.gameOptions.board[i]) { %>
+                        <div x="<%= Object.keys(locals.lobby.gameOptions.board[i]).indexOf(row) %>" y="<%= i %>">
+                            <div pawn="<%= locals.lobby.gameOptions.board[i][row] %>"></div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>  
+        </div>
+    </div>
+    
+<%- contentFor('script') %> 
+    <script>
+        let playerIndex = JSON.parse('<%= locals.playerIndex %>');
+        let playerTurn = JSON.parse('<%= locals.lobby.queue %>');
+    </script>
+    <script src="/js/games/warcaby.js"></script>

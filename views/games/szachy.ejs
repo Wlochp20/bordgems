@@ -1,0 +1,54 @@
+<%- contentFor('head') %> 
+    <meta charset="UTF-8">
+    <title>Szachy</title>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <link rel="stylesheet" href="/css/games/szachy.css">
+        
+<%- contentFor('game') %> 
+    <div class="pawnSelect hidden">
+        <div pawn="R"><img src="/img/games/wRook.png"></div>
+        <div pawn="K"><img src="/img/games/wKnight.png"></div>
+        <div pawn="B"><img src="/img/games/wBishop.png"></div>
+        <div pawn="Q"><img src="/img/games/wQueen.png"></div>
+    </div>
+    <div>
+        <div class="boardContainer">
+            <div class="columns">
+                <% for (let i = 0; i < locals.lobby.gameOptions.board.length; i++) { %>
+                    <p><%= i + 1 %></p>
+                <% } %>  
+            </div>
+            <div class="rows">
+                <p>h</p>
+                <p>g</p>
+                <p>f</p>
+                <p>e</p>
+                <p>d</p>
+                <p>c</p>
+                <p>b</p>
+                <p>a</p>
+            </div>
+        </div>
+        <div class="board">
+            <% for (let i = 0; i < locals.lobby.gameOptions.board.length; i++) { %>
+                <div class="row">
+                    <% for(let j = 0; j < locals.lobby.gameOptions.board[i].length; j++) { %>
+                        <div x="<%= j %>" y="<%= locals.lobby.gameOptions.board.length - i %>">
+                            <% if (locals.lobby.gameOptions.board[i][j] != null) { %>
+                                <img pawn="<%= locals.lobby.gameOptions.board[i][j].type %>" color="<%= locals.lobby.gameOptions.board[i][j].color %>">
+                            <% } else { %>
+                                <img pawn="" color="">
+                            <% } %>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>  
+        </div>
+    </div>
+
+<%- contentFor('script') %> 
+    <script> 
+        let playerIndex = JSON.parse('<%= locals.playerIndex %>');
+        let playerTurn = JSON.parse('<%= locals.lobby.queue %>');
+    </script>
+    <script src="/js/games/szachy.js"></script>

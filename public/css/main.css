@@ -1,0 +1,66 @@
+header .headerInside
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 200px;
+}
+header .headerInside a
+{
+  padding: 15px;
+  display: block;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #fff;
+  color: #FF1E1E;
+  border-radius: 10px;
+  font-size: 30px;
+  transition: .1s;
+}
+header .headerInside a:hover { background-color: #eeeeee }
+
+main .games
+{
+  margin-inline: auto;
+  margin-top: -300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+}
+main .games div
+{
+  margin: 80px;
+  width: 450px;
+  height: 300px;
+  font-size: 30px;
+}
+main .games div a 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #363636;
+  border-radius: 20px;
+  box-shadow: 0 10px 0 0 #1e1e1e;
+  transition: 0.3s ease-in-out;
+}
+main .games div a img 
+{
+  width: 80%;
+  height: auto;
+}
+main .games div a:hover 
+{
+  background-color: #464646;
+  box-shadow: 0 10px 0 0 #363636;
+}
+main .games div a:active 
+{
+  box-shadow: 0 5px 0 0 #363636;
+  transform: translateY(5px);
+}

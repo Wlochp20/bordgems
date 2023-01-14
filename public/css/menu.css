@@ -1,0 +1,85 @@
+@import url(general.css);
+
+header nav, header .headerInside { background: linear-gradient(to right, #F34B4B, #DD7B44) }
+
+header nav
+{
+  padding: 40px 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav > ul
+{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  list-style-type: none;
+}
+header nav > ul li, header nav > ul li a
+{
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+header nav > ul .drop { padding-right: 35px }
+header nav > ul .drop::after, header nav > ul .drop::before
+{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  transition: .2s;
+}
+header nav > ul .drop::after
+{
+  right: 0;
+  transform: translateY(-50%) rotate(60deg);
+}
+header nav > ul .drop::before
+{
+  right: 10px;
+  transform: translateY(-50%) rotate(-60deg);
+}
+header nav > ul .drop:hover::after { transform: translateY(-50%) rotate(-60deg) }
+header nav > ul .drop:hover::before { transform: translateY(-50%) rotate(60deg) }
+header nav > ul .drop:hover .dropdown { display: block }
+header nav > ul li .dropdown
+{
+  margin: 0;
+  padding: 0;
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+  list-style-type: none;
+}
+header nav > ul li .dropdown li
+{
+  padding: 10px 25px;
+  background-color: #fff;
+  transition: .2s;
+}
+header nav > ul li .dropdown li:hover { background-color: #e8e8e8 }
+header nav > ul li .dropdown li a
+{
+  width: 100%;
+  height: 100px;
+  color: #F34B4B;
+}
+header nav > ul .user:last-child a
+{
+  background-color: #363636;
+  color: #e8e8e8;
+  border-radius: 5px;
+}

@@ -1,0 +1,57 @@
+@font-face 
+{
+    font-family: Roboto;
+    src: url('../font/Roboto-Regular.ttf');
+}
+@font-face 
+{
+    font-family: RobotoLight;
+    src: url('../font/Roboto-Light.ttf');
+}
+
+:root
+{
+    --alert-back: #EDEDED;
+    --alert-detail: #BABABA;
+}
+
+body 
+{
+    background-color: #FFE4C4;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+}
+
+.alertBox
+{
+    display: grid;
+    grid-template-columns: 70px auto 70px;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+    height: 100px;
+    width: 700px;
+    background-color: var(--alert-back);
+    border-left: 20px solid var(--alert-detail);
+    border-radius: 7px;
+}
+.alertBox p
+{
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--alert-detail);
+}
+.alertBox svg
+{
+    justify-self: center;
+    width: 35px;
+    height: 35px;
+    fill: var(--alert-detail);
+}
+.alertBox .close { cursor: pointer }

@@ -1,0 +1,101 @@
+.game
+{
+    margin-top: 100px;
+    padding-right: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boardContainer { position: relative }
+.boardContainer .columns
+{
+    position: absolute;
+    top: -100px;
+    display: flex;
+    justify-content: center;
+}
+.boardContainer .columns p
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid transparent;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.boardContainer .rows
+{
+    position: absolute;
+    top: 0;
+    left: -100px;
+}
+.boardContainer .rows p
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid transparent;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.board .row
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board .row > div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    background-color: #D18B47;
+}
+.board .row:nth-child(even) > div:nth-child(even), .board .row:nth-child(odd) > div:nth-child(odd) { background-color: #FFCE9E }
+.board .row > div div
+{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+.board .row > div div[pawn="-1"], .board .row > div div[pawn="-2"]
+{
+    position: relative;
+    background-color: #000;
+}
+.board .row > div div[pawn="1"], .board .row > div div[pawn="2"]
+{
+    position: relative;
+    background-color: #fff;
+}
+.board .row > div div[pawn="-2"]::after, .board .row > div div[pawn="2"]::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+.board .row > div div[pawn="-2"]::after { background-color: #fff }
+.board .row > div div[pawn="2"]::after { background-color: #000 }

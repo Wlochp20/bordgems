@@ -1,0 +1,58 @@
+<%- contentFor('head') %>
+    <meta charset="UTF-8">
+    <title><%= `${locals.game[0].toUpperCase()}${locals.game.substring(1)}` %></title>
+    <link rel="stylesheet" href="/css/lobby.css">
+    
+<%- contentFor('headerInside') %>
+    <h1><%= locals.game.toUpperCase() %></h1>
+
+<%- contentFor('body') %>
+    <div class="lobbyCreation hidden">
+        <div class="content">
+            <h2>Stwórz lobby</h2>
+            <form class="options">
+                <div class="inputs">
+                    <div>
+                        <label for="time">Czas gry:</label>
+                        <div class="time">
+                            <input type="number" min="1" max="30" value="10" id="minutes" required/><input type="number" value="00" min="0" max="59" id="seconds" required/>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="name">Nazwa gry:</label>
+                        <input type="text" id="name" placeholder="nazwa" required>
+                    </div>
+                </div>
+                <input type="submit" value="Stwórz lobby">
+            </form>
+        </div>
+    </div>
+    <main>
+        <div class="joinButtons">
+            <button class="createLobby">Stwórz publiczną gre</button>
+            <button>Stwórz prywatną gre</button>
+            <button>Dołącz do prywatnej gry</button>
+        </div>
+        <div class="lobbies">
+            <p>Serwery: <span><%= locals.lobbies.filter(lobby => lobby.options.public).length %></span></p>
+            <div class="legend">
+                <p>Nazwa:</p>
+                <p>Ilość graczy:</p>
+            </div>
+            <div class="games">
+                <% for(let i = 0; i < locals.lobbies.length; i++){ %>
+                    <% if (locals.lobbies[i].options.public) { %>
+                        <a href="<%= locals.game %>/<%= locals.lobbies[i].code; %>">
+                            <p>
+                                <%= locals.lobbies[i].name; %>
+                                <span>#<%= locals.lobbies[i].code; %></span>
+                            </p>
+                            <p><%= locals.lobbies[i].players.length; %>/<%= locals.lobbies[i].gameOptions.maxPlayers; %></p>
+                        </a>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </main>
+    <script src="/js/alerts.js"></script>
+    <script src="/js/lobby.js" defer></script>
